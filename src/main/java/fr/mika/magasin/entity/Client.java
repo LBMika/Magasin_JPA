@@ -10,10 +10,11 @@ import java.util.List;
 
 @Entity
 @Table(name="client")
-@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Client {
+    public static final Client NULL_CLIENT = new Client();
+
     @Id
     @Column(name="id_client")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,4 +25,10 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     private List<Purchase> purchases;
+
+    public Client() {
+        this.clientId = 0L;
+        this.firstname = "";
+        this.lastname = "";
+    }
 }
