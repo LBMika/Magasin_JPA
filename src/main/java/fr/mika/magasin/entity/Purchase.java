@@ -20,7 +20,7 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long purchaseId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_client")
     private Client client;
 
