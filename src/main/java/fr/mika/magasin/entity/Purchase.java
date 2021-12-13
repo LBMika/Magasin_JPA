@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="purchase")
@@ -20,4 +21,10 @@ public class Purchase {
     @ManyToOne
     @JoinColumn(name = "id_client")
     private Client client;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "product_purchase",
+                joinColumns = @JoinColumn(name = "id_purchase"),
+                inverseJoinColumns = @JoinColumn(name = "id_product"))
+    private List<Product> products;
 }
