@@ -10,10 +10,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "category")
-@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Category {
+    public final static Category NULL_CATEGORY = new Category();
+
     @Id
     @Column(name = "id_category")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +23,9 @@ public class Category {
 
     @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
+
+    public Category() {
+        this.categoryId = 0L;
+        this.name = "";
+    }
 }
