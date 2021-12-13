@@ -1,7 +1,7 @@
 package fr.mika.magasin.repository;
 
-import fr.mika.magasin.entity.Client;
+import fr.mika.magasin.entity.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CategoryRepository extends JpaRepository<Client, Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 }
