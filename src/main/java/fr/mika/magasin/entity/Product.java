@@ -19,7 +19,7 @@ public class Product {
     private String name;
     private float price;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "id_category")
     private Category category;
 }
