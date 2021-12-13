@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,11 +27,12 @@ public class Product {
     private Category category;
 
     @ManyToMany(mappedBy = "products")
-    private List<Purchase> purchases;
+    private List<Purchase> purchases = new ArrayList<>();
 
     public Product() {
         this.productId = 0L;
         this.name = "";
         this.price = -1f;
+        this.category = Category.NULL_CATEGORY;
     }
 }

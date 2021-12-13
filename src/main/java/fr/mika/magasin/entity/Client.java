@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,7 +25,7 @@ public class Client {
 
 
     @OneToMany(mappedBy = "client")
-    private List<Purchase> purchases;
+    private List<Purchase> purchases = new ArrayList<>();
 
     public Client() {
         this.clientId = 0L;
