@@ -9,10 +9,11 @@ import java.util.List;
 
 @Entity
 @Table(name = "product")
-@NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Product {
+    public static final Product NULL_PRODUCT = new Product();
+
     @Id
     @Column(name = "id_product")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +24,13 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "id_category")
     private Category category;
-    
+
     @ManyToMany(mappedBy = "products")
     private List<Purchase> purchases;
+
+    public Product() {
+        this.productId = 0L;
+        this.name = "";
+        this.price = -1f;
+    }
 }
