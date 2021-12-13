@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="client")
@@ -19,4 +20,8 @@ public class Client {
     private Long clientId;
     private String firstname;
     private String lastname;
+
+
+    @OneToMany(mappedBy = "client")
+    private List<Purchase> purchases;
 }

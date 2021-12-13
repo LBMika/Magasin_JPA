@@ -16,4 +16,8 @@ public class Purchase {
     @Column(name="id_purchase")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long purchaseId;
+
+    @ManyToOne
+    @JoinColumn(name = "id_client")
+    private Client client;
 }
