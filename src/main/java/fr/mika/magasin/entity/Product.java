@@ -7,15 +7,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name="product")
+@Table(name = "product")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Product {
     @Id
-    @Column(name="id_product")
+    @Column(name = "id_product")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long productId;
     private String name;
     private float price;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "id_category")
+    private Category category;
 }
